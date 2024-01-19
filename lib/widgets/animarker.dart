@@ -376,6 +376,7 @@ class AnimarkerState extends State<Animarker> with TickerProviderStateMixin {
       }
       if(resetCircle){
         _circles.clear();
+        widget.updateCircles({}, {});
       }
       return;
     }
