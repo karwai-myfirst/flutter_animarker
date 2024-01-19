@@ -368,6 +368,15 @@ class AnimarkerState extends State<Animarker> with TickerProviderStateMixin {
     if (oldWidget.markers.length > widget.markers.length) {
       print('didUpdateWidget: updateMarkers');
       widget.updateMarkers(oldWidget.markers, widget.markers);
+      var resetCircle = true;
+      for(Marker marker in widget.markers){
+        if(marker.isRipple){
+          resetCircle = false;
+        }
+      }
+      if(resetCircle){
+        _circles.clear();
+      }
       return;
     }
     print('didUpdateWidget: calculateListDiff');
