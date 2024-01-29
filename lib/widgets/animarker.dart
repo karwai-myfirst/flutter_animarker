@@ -482,6 +482,12 @@ class AnimarkerState extends State<Animarker> with TickerProviderStateMixin {
     await widget.updateCircles(tempCircles, _circles.set);
   }
 
+  Future<void> clearCircle() async {
+    var tempCircles = _circles.set;
+    _circles.set.clear();
+    await widget.updateCircles(tempCircles, _circles.set);
+  }
+
   @override
   void dispose() {
     GoogleMapsFlutterPlatform.instance.dispose(mapId: 0);
